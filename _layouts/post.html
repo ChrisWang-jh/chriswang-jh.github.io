@@ -1,0 +1,23 @@
+---
+layout: blog
+---
+<article class="blog-post">
+  <header class="post-header">
+    <a class="back-link" href="{{ '/blog/' | relative_url }}">← All posts</a>
+    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%b %d, %Y' }}</time></p>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.description %}<p class="blog-lead">{{ page.description | escape }}</p>{% endif %}
+    {% if page.tags.size > 0 %}
+    <ul class="post-tags" aria-label="Tags">
+      {% for tag in page.tags %}<li>{{ tag | escape }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+  </header>
+  <div class="post-content">
+    {{ content }}
+  </div>
+  <nav class="post-navigation" aria-label="Post navigation">
+    <a href="{{ '/blog/' | relative_url }}">← All posts</a>
+    {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">Older: {{ page.previous.title | escape }} →</a>{% endif %}
+  </nav>
+</article>

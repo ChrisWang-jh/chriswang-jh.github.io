@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Jiahe Wang">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.description | default: site.description | escape }}">
+  <title>{{ page.title | escape }} | {{ site.title | escape }}</title>
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="icon" type="image/png" href="{{ '/img/avator.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/img/avator.png' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+  <script defer src="{{ '/assets/js/visit-counter.js' | relative_url }}"></script>
+  {% if page.layout == 'post' %}
+  <script src="{{ '/assets/js/mathjax-config.js' | relative_url }}"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  {% endif %}
+</head>
+<body id="top" class="blog-page">
+  <a class="skip-link" href="#blog-content">Skip to content</a>
+  <main class="blog-main">
+    <header class="blog-nav">
+      <a class="blog-brand" href="{{ '/' | relative_url }}">Jiahe Wang</a>
+      <nav class="links" aria-label="Main navigation">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/blog/' | relative_url }}" {% if page.layout == 'post' %}class="is-active"{% else %}aria-current="page"{% endif %}>Blog</a>
+      </nav>
+    </header>
+    <div id="blog-content">
+      {{ content }}
+    </div>
+  </main>
+  {% include footer.html %}
+</body>
+</html>

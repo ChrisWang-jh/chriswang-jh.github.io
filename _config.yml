@@ -1,0 +1,31 @@
+title: Jiahe Wang
+description: Research, projects, and notes by Jiahe Wang.
+url: "https://chriswang-jh.github.io"
+baseurl: ""
+timezone: Asia/Shanghai
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:title/
+future: false
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      lang: zh-CN
+
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - scripts
+  - tests
+

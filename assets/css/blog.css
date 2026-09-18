@@ -1,0 +1,131 @@
+.blog-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.blog-main { flex: 1; }
+
+.blog-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+}
+
+.blog-brand {
+  color: var(--accent-dark);
+  font-size: 1.2rem;
+  font-weight: 750;
+}
+
+.blog-nav .links { margin: 0; }
+.blog-nav .links a { min-width: 76px; }
+
+.blog-nav [aria-current="page"],
+.blog-nav .is-active {
+  color: #fff;
+  border-color: var(--accent-dark);
+  background: var(--accent-dark);
+}
+
+.blog-heading { padding: 48px 0 32px; }
+
+.eyebrow {
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+}
+
+.blog-lead, .blog-summary { color: var(--muted); }
+.blog-lead { margin-bottom: 0; }
+.blog-list { display: grid; gap: 20px; }
+
+.blog-card, .blog-empty {
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgb(255 255 255 / 80%);
+  box-shadow: 0 5px 20px rgb(31 53 78 / 5%);
+}
+
+.blog-card h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.blog-summary { margin-bottom: 0; }
+.blog-empty p { color: var(--muted); }
+.blog-empty h2 { font-size: 1.4rem; }
+.post-meta { margin: 0 0 10px; color: var(--muted); font-size: 0.88rem; }
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-tags li {
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: var(--accent-dark);
+  background: rgb(23 105 170 / 7%);
+  font-size: 0.78rem;
+}
+
+.blog-post { max-width: 760px; margin: 0 auto; }
+.post-header { padding: 40px 0 28px; border-bottom: 1px solid var(--border); }
+.back-link { display: inline-block; margin-bottom: 28px; font-size: 0.92rem; }
+.post-header h1 { font-size: clamp(2rem, 5vw, 2.8rem); overflow-wrap: anywhere; }
+.post-content { padding: 30px 0; line-height: 1.85; overflow-wrap: anywhere; }
+.post-content > :first-child { margin-top: 0; }
+.post-content h2 { margin: 1.7em 0 0.65em; font-size: 1.6rem; line-height: 1.4; }
+.post-content h3 { margin: 1.5em 0 0.6em; font-size: 1.2rem; }
+.post-content a { text-decoration: underline; text-underline-offset: 3px; }
+.post-content img { display: block; max-width: 100%; height: auto; border-radius: 10px; }
+.post-content blockquote { margin: 1.5em 0; padding: 8px 20px; border-left: 3px solid var(--accent); color: var(--muted); }
+.post-content blockquote > :last-child { margin-bottom: 0; }
+.post-content code { padding: 0.15em 0.35em; border-radius: 4px; background: #edf2f8; font-size: 0.88em; }
+.post-content pre { max-width: 100%; overflow-x: auto; padding: 20px; border: 1px solid var(--border); border-radius: 10px; background: #f4f7fb; line-height: 1.6; }
+.post-content pre code { padding: 0; background: none; overflow-wrap: normal; }
+.post-content table { display: block; max-width: 100%; overflow-x: auto; margin: 1.5em 0; border-collapse: collapse; }
+.post-content th, .post-content td { padding: 10px 16px; border: 1px solid var(--border); text-align: left; }
+.post-content th { background: #f4f7fb; }
+.post-content hr { margin: 2em 0; border: 0; border-top: 1px solid var(--border); }
+.post-content mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: 4px 0; max-width: 100%; }
+
+.highlight .c, .highlight .c1, .highlight .cm { color: #586778; font-style: italic; }
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kt { color: #8145a3; }
+.highlight .s, .highlight .s1, .highlight .s2 { color: #236b4b; }
+.highlight .nf, .highlight .nc, .highlight .nb { color: #1769aa; }
+.highlight .m, .highlight .mi, .highlight .mf { color: #9c4c0b; }
+
+.post-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.skip-link { position: absolute; top: -100px; left: 16px; padding: 8px 16px; border-radius: 6px; background: #fff; z-index: 1; }
+.skip-link:focus { top: 12px; }
+
+@media (max-width: 680px) {
+  .blog-nav { gap: 12px; padding-bottom: 24px; }
+  .blog-nav .links { gap: 8px; }
+  .blog-nav .links a { padding: 8px 12px; min-width: auto; }
+  .blog-heading { padding-top: 36px; }
+  .blog-card, .blog-empty { padding: 22px; }
+  .post-header { padding-top: 30px; }
+}
