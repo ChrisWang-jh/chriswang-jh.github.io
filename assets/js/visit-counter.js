@@ -1,25 +1,27 @@
 (() => {
   "use strict";
 
-  const container = document.getElementById("busuanzi_container_site_pv");
-  const value = document.getElementById("busuanzi_value_site_pv");
+  // Display site-wide unique visitors (UV), not per-page views (PV).
+  // Visitor deduplication is handled by the service across the whole site.
+  const container = document.getElementById("busuanzi_container_site_uv");
+  const value = document.getElementById("busuanzi_value_site_uv");
   const status = document.querySelector("[data-visit-status]");
   if (!container || !value || !status) return;
 
-  status.textContent = "Loading views…";
+  status.textContent = "Loading visitors…";
 
   // Local previews must not contribute to the public site's count.
   const hostname = window.location.hostname;
   if (window.location.protocol === "file:" || hostname === "localhost" ||
       hostname.endsWith(".localhost") || hostname === "[::1]" ||
       /^127\./.test(hostname) || hostname === "0.0.0.0") {
-    status.textContent = "Views available on the live site";
+    status.textContent = "Visitor count available on the live site";
     return;
   }
 
   let loaded = false;
   const showUnavailable = () => {
-    if (!loaded) status.textContent = "Views temporarily unavailable";
+    if (!loaded) status.textContent = "Visitor count temporarily unavailable";
   };
   const timeout = window.setTimeout(showUnavailable, 8000);
 

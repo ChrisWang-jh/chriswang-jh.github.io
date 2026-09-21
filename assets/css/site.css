@@ -280,7 +280,7 @@ section { padding-top: 42px; }
 
 .visit-counter [hidden] { display: none !important; }
 
-#busuanzi_value_site_pv { font-variant-numeric: tabular-nums; }
+#busuanzi_value_site_uv { font-variant-numeric: tabular-nums; }
 
 .back-to-top {
   display: inline-flex;
