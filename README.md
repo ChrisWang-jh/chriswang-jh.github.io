@@ -58,25 +58,6 @@ bundle exec jekyll serve --host 127.0.0.1 --drafts
 
 仅检查构建：`bundle exec jekyll build`。构建产物位于 `_site/`，无需提交。
 
-## GitHub Pages
-
-在 GitHub 仓库 **Settings → Pages → Build and deployment** 中使用 **Deploy from a branch**，选择存放此代码的分支及 **/(root)**。GitHub Pages 会自动运行 Jekyll；仓库中不要添加 `.nojekyll`。
-
-如果原有部署方式是自定义 GitHub Actions，必须先执行 Jekyll 构建，再部署 `_site/`，不能直接上传原始模板目录。这次修改没有更改远程部署设置或推送代码。
-
-## 访客计数
-
-首页、博客列表和文章页底部的 `Total visitors` 使用[不蒜子](https://ibruce.info/2015/04/04/busuanzi/)的全站 UV（`site_uv`，去重访客数）。同一访客刷新页面或连续打开多篇博客时，由服务端按访客规则去重，不再把每次页面浏览都显示为新增访客。
-
-每个页面仍请求服务以显示最新的全站访客数，但读取的是 `site_uv`，而不是每次浏览都会增加的 `site_pv`。所有访客共享服务端统计，不使用本机缓存冻结数字，也不在前端自行累加。
-
-- 本地 `localhost` / `127.0.0.1` 预览不请求计数服务，也不污染线上统计。
-- 服务无法访问时显示 `Visitor count temporarily unavailable`，不会影响页面浏览，也不会用虚构的数字代替统计。
-- 这是第三方服务，会接收到访客的网络请求和页面来源；广告拦截、禁用 JavaScript 或服务故障可能造成漏计，不能保证所有访问都被记录。
-- 切换后显示服务已经维护的 UV 数据，不会把旧 PV 数字直接沿用、清零或人为减小；显示值可能比原来的浏览次数低。
-- 去重方式和周期由不蒜子服务决定，不能保证同一个自然人永久只计一次；更换设备、浏览器或访客身份失效可能被重新识别。这里展示的是估算访客数，不是严格的人数统计。
-- 更换域名通常会使用新的统计数据。
-
 ## 实现参考
 
 - [参考站 Blog](https://www.error666.top/blog/)：首页入口 → 日期、标题、摘要列表 → 独立文章页。
